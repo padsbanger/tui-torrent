@@ -1,22 +1,46 @@
 {
   "name": "tui-torrent",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Torrent client for the command line, built with ink.js and WebTorrent.",
   "type": "module",
   "bin": {
-    "tui-torrent": "./dist/cli.js"
+    "tui-torrent": "dist/cli.js"
   },
-  "main": "./dist/cli.js",
+  "main": "dist/cli.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "tsx src/cli.tsx",
     "build": "tsc",
     "start": "node dist/cli.js",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\"",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run clean && npm run typecheck && npm run build"
   },
   "engines": {
     "node": ">=18"
   },
+  "keywords": [
+    "torrent",
+    "bittorrent",
+    "webtorrent",
+    "cli",
+    "tui",
+    "ink",
+    "terminal"
+  ],
+  "author": "Michał Lach <kontakt@michal-lach.pl>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/padsbanger/tui-torrent.git"
+  },
+  "homepage": "https://github.com/padsbanger/tui-torrent#readme",
+  "bugs": {
+    "url": "https://github.com/padsbanger/tui-torrent/issues"
+  },
   "dependencies": {
     "ink": "^5.1.0",
     "ink-text-input": "^6.0.0",
