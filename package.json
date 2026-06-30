@@ -1,0 +1,33 @@
+{
+  "name": "tui-torrent",
+  "version": "0.1.0",
+  "description": "Torrent client for the command line, built with ink.js and WebTorrent.",
+  "type": "module",
+  "bin": {
+    "tui-torrent": "./dist/cli.js"
+  },
+  "main": "./dist/cli.js",
+  "scripts": {
+    "dev": "tsx src/cli.tsx",
+    "build": "tsc",
+    "start": "node dist/cli.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "ink": "^5.1.0",
+    "ink-text-input": "^6.0.0",
+    "react": "^18.3.1",
+    "webtorrent": "^2.5.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/react": "^18.3.12",
+    "@types/webtorrent": "^0.110.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}
