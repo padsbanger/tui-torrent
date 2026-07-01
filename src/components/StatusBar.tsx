@@ -37,10 +37,11 @@ export default function StatusBar({
           </Text>
         ) : (
           <Text dimColor>
-            <Text color="cyan">a</Text> add · <Text color="cyan">p</Text>{' '}
-            pause · <Text color="cyan">d</Text> remove ·{' '}
-            <Text color="cyan">enter</Text> details ·{' '}
-            <Text color="cyan">?</Text> help · <Text color="cyan">q</Text> quit
+            <Text color="cyan">↑↓</Text> select · <Text color="cyan">a</Text>{' '}
+            add · <Text color="cyan">p</Text> pause · <Text color="cyan">o</Text>{' '}
+            open · <Text color="cyan">c</Text> magnet · <Text color="cyan">d</Text>{' '}
+            remove · <Text color="cyan">?</Text> help · <Text color="cyan">q</Text>{' '}
+            quit
           </Text>
         )}
       </Box>

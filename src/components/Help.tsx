@@ -6,8 +6,9 @@ const KEYS: Array<[string, string]> = [
   ['↓ / j', 'move selection down'],
   ['a', 'add a torrent (magnet or .torrent)'],
   ['p', 'pause / resume selected torrent'],
+  ['o', 'open download folder'],
+  ['c', 'copy magnet link to clipboard'],
   ['d / x', 'remove selected torrent (deletes data)'],
-  ['enter', 'open details view'],
   ['?', 'toggle this help'],
   ['q / ctrl+c', 'quit'],
 ];
