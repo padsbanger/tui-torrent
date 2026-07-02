@@ -43,3 +43,32 @@ export function progressBar(fraction: number, width: number): string {
   const filled = Math.round(clamped * width);
   return '█'.repeat(filled) + '░'.repeat(Math.max(0, width - filled));
 }
+
+/** Rolling download/upload speed samples (bytes/s) used by the sparkline. */
+export interface SpeedHistory {
+  down: number[];
+  up: number[];
+}
+
+const SPARK_TICKS = '▁▂▃▄▅▆▇█';
+
+/**
+ * Render a series of values as a unicode sparkline of the given width. The most
+ * recent `width` samples are shown, auto-scaled to the window's peak, and
+ * left-padded with spaces when there are fewer samples than the width.
+ */
+export function sparkline(values: number[], width: number): string {
+  if (width <= 0) return '';
+  const recent = values.slice(-width);
+  if (recent.length === 0) return ' '.repeat(width);
+  const max = Math.max(...recent);
+  const bars = recent
+    .map((value) => {
+      if (max <= 0) return SPARK_TICKS[0];
+      const ratio = Math.max(0, Math.min(1, value / max));
+      const index = Math.round(ratio * (SPARK_TICKS.length - 1));
+      return SPARK_TICKS[index];
+    })
+    .join('');
+  return bars.padStart(width, ' ');
+}
